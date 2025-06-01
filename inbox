@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простой лендинг</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            padding-top: 60px;
+        }
+        
+        /* Топ-бар */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background-color: #555;
+        }
+        
+        /* Секции */
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #about {
+            background-color: #f0f8ff;
+        }
+        
+        #team {
+            background-color: #fff0f5;
+        }
+        
+        #contacts {
+            background-color: #f0fff0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            text-align: center;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Топ-бар -->
+    <div class="top-bar">
+        <div class="nav-container">
+            <div class="nav-item active" data-target="about">О нас</div>
+            <div class="nav-item" data-target="team">Сотрудники</div>
+            <div class="nav-item" data-target="contacts">Контакты</div>
+        </div>
+    </div>
+    
+    <!-- Секции -->
+    <section id="about" class="section">
+        <h1>О нас</h1>
+        <p>Мы - молодая и динамично развивающаяся компания, специализирующаяся на создании качественных веб-решений. Наша команда состоит из профессионалов с многолетним опытом работы в сфере IT.</p>
+    </section>
+    
+    <section id="team" class="section">
+        <h1>Наши сотрудники</h1>
+        <p>В нашей команде работают высококвалифицированные специалисты: веб-разработчики, дизайнеры, маркетологи и менеджеры проектов. Каждый из них вносит свой вклад в успех компании.</p>
+    </section>
+    
+    <section id="contacts" class="section">
+        <h1>Контакты</h1>
+        <p>Вы можете связаться с нами по телефону: +7 (123) 456-78-90 или написать на email: info@example.com. Наш офис находится по адресу: г. Москва, ул. Примерная, д. 123.</p>
+    </section>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.section');
+            
+            // Плавный скролл по клику
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    // Удаляем активный класс у всех пунктов
+                    navItems.forEach(navItem => navItem.classList.remove('active'));
+                    // Добавляем активный класс текущему пункту
+                    this.classList.add('active');
+                    
+                    // Плавный скролл к секции
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Изменение активного пункта при скролле
+            window.addEventListener('scroll', function() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= sectionTop - 200 && pageYOffset < sectionTop + sectionHeight - 200) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-target') === currentSection) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
