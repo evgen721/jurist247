@@ -3,83 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Простой лендинг</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        body {
-            padding-top: 60px;
-        }
-        
-        /* Топ-бар */
-        .top-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            padding: 15px 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .nav-item {
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .nav-item:hover, .nav-item.active {
-            background-color: #555;
-        }
-        
-        /* Секции */
-        .section {
-            min-height: 100vh;
-            padding: 80px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        #about {
-            background-color: #f0f8ff;
-        }
-        
-        #team {
-            background-color: #fff0f5;
-        }
-        
-        #contacts {
-            background-color: #f0fff0;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            text-align: center;
-            line-height: 1.6;
-        }
-    </style>
+    <title>Компания ТехноЛаб</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Топ-бар -->
@@ -93,64 +18,69 @@
     
     <!-- Секции -->
     <section id="about" class="section">
-        <h1>О нас</h1>
-        <p>Мы - молодая и динамично развивающаяся компания, специализирующаяся на создании качественных веб-решений. Наша команда состоит из профессионалов с многолетним опытом работы в сфере IT.</p>
+        <div class="content-wrapper">
+            <div class="title-block">
+                <h1>О компании</h1>
+            </div>
+            <p>ТехноЛаб - инновационная IT-компания, основанная в 2015 году. Мы специализируемся на разработке сложных веб-приложений и мобильных решений для бизнеса. Наш подход сочетает креативность, технологичность и глубокое понимание потребностей клиентов.</p>
+        </div>
     </section>
     
     <section id="team" class="section">
-        <h1>Наши сотрудники</h1>
-        <p>В нашей команде работают высококвалифицированные специалисты: веб-разработчики, дизайнеры, маркетологи и менеджеры проектов. Каждый из них вносит свой вклад в успех компании.</p>
+        <div class="content-wrapper">
+            <div class="title-block">
+                <h1>Наша команда</h1>
+            </div>
+            
+            <div class="team-slider">
+                <div class="slider-container">
+                    <div class="team-member">
+                        <img src="content/j2.jpg" alt="Иван Петров">
+                        <h3>Булатов Дмитрий</h3>
+                        <p class="position">Руководитель. Юрист</p>
+                        <p class="bio">Магистр юридических наук. Два высших юридических образования.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="content/j1.jpg" alt="Елена Смирнова">
+                        <h3>Полежаева Олеся</h3>
+                        <p class="position">Старший юрист</p>
+                        <p class="bio">Ведущий юрист в сфере уголовного и гражданского права. Опыт работы более 17 лет.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Алексей Козлов">
+                        <h3>Алексей Алексеев</h3>
+                        <p class="position">Юрист</p>
+                        <p class="bio">Высшее юридическое образование. Опыт работы 5 лет.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Мария Иванова">
+                        <h3>Мария Иванова</h3>
+                        <p class="position">Юрист по уголовному праву</p>
+                        <p class="bio">Высшее юридическое образование. Опыт работы 7 лет.</p>
+                    </div>
+                </div>
+                
+                <button class="slider-btn prev">←</button>
+                <button class="slider-btn next">→</button>
+            </div>
+        </div>
     </section>
     
     <section id="contacts" class="section">
-        <h1>Контакты</h1>
-        <p>Вы можете связаться с нами по телефону: +7 (123) 456-78-90 или написать на email: info@example.com. Наш офис находится по адресу: г. Москва, ул. Примерная, д. 123.</p>
+        <div class="content-wrapper">
+            <div class="title-block">
+                <h1>Как нас найти</h1>
+            </div>
+            <p>Адрес: г. Екатеринбург, ул. Ленина, д. 42, офис 305<br>
+            Телефон: +7 (343) 123-45-67<br>
+            Email: info@jurist247.ru<br>
+            Часы работы: Пн-Пт с 9:00 до 18:00</p>
+        </div>
     </section>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.nav-item');
-            const sections = document.querySelectorAll('.section');
-            
-            // Плавный скролл по клику
-            navItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const targetSection = document.getElementById(targetId);
-                    
-                    // Удаляем активный класс у всех пунктов
-                    navItems.forEach(navItem => navItem.classList.remove('active'));
-                    // Добавляем активный класс текущему пункту
-                    this.classList.add('active');
-                    
-                    // Плавный скролл к секции
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Изменение активного пункта при скролле
-            window.addEventListener('scroll', function() {
-                let currentSection = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
-                    if (pageYOffset >= sectionTop - 200 && pageYOffset < sectionTop + sectionHeight - 200) {
-                        currentSection = section.getAttribute('id');
-                    }
-                });
-                
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('data-target') === currentSection) {
-                        item.classList.add('active');
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
