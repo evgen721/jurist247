@@ -158,7 +158,7 @@ p {
 }
 
 .slider-btn:hover {
-    background: #f1c40f;
+    background: #ad5b21;
     color: #2c3e50;
 }
 
@@ -169,6 +169,11 @@ p {
 .slider-btn.next {
     right: 10px;
 }
+
+.slider-btn.prev img, .slider-btn.next img {
+    margin-top: 5px;
+}
+
 
 @media (max-width: 768px) {
     .nav-container {
